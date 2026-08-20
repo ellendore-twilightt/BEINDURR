@@ -46,7 +46,7 @@ module.exports = async function runParties(page) {
         const panel = el.closest('li.party.panel');
 
         const ownerLink = panel?.querySelector(
-          'h1.party-owners-names a.party.owners-names-link'
+          'h1.party.owners.names a.party.owners.names.link'
         );
 
         return ownerLink
