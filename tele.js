@@ -137,11 +137,6 @@ module.exports = async function runTeleportEvent(page) {
         emptySet.size +
         highProb.size;
 
-      console.log(
-        '🧪 Grid validation:',
-        totalCheck === 100,
-        altCheck === 100
-      );
 
       let clicked = false;
 
@@ -207,7 +202,6 @@ module.exports = async function runTeleportEvent(page) {
               }
             }
 
-            console.log('🎯 Phase I click:', clickTarget);
 
             const idx = getIndex(...clickTarget);
 
@@ -245,7 +239,6 @@ module.exports = async function runTeleportEvent(page) {
         if (candidates.length >= 2) {
           const tk = randomPick(candidates);
 
-          console.log('🎯 Priority click:', tk);
 
           const idx = getIndex(...tk);
 
@@ -287,11 +280,6 @@ module.exports = async function runTeleportEvent(page) {
             .split(',')
             .map(Number);
 
-          console.log(
-            '🎯 Overlap-bigblock click:',
-            tk
-          );
-
           const idx = getIndex(...tk);
 
           await page.click(
@@ -332,11 +320,6 @@ module.exports = async function runTeleportEvent(page) {
             .split(',')
             .map(Number);
 
-          console.log(
-            '🎯 Overlap-lagging click:',
-            tk
-          );
-
           const idx = getIndex(...tk);
 
           await page.click(
@@ -362,8 +345,6 @@ module.exports = async function runTeleportEvent(page) {
           .split(',')
           .map(Number);
 
-        console.log('🎯 Fallback click:', tk);
-
         const idx = getIndex(...tk);
 
         await page.click(
@@ -374,11 +355,7 @@ module.exports = async function runTeleportEvent(page) {
 
         await page.waitForTimeout(20000);
       }
-
-      console.log('➡️ Remaining tries:', tries);
     }
-
-    console.log('🎉 All done — no tries left.');
 
   } catch (error) {
     console.log('❌ Tele Event failed — skipped.');
