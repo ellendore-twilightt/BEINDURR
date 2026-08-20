@@ -41,7 +41,7 @@ const scripts = [
 
   { name: 'Memory Event', fn: runMemoryEvent, envKey: 'LP_MEMORY_URL' },
 
-  { name: 'Furniture Script', fn: runFurnitureScript, alwaysRun: false },
+  { name: 'Furniture Script', fn: runFurnitureScript, alwaysRun: true },
 
   { name: 'Daily Tasks', fn: runDailyTasks, alwaysRun: true },
 
@@ -49,7 +49,7 @@ const scripts = [
 
   { name: 'Guild Show', fn: runGuildShow, alwaysRun: true },
 
-  { name: 'Pet Training', fn: runPetTraining, alwaysRun: true },
+  { name: 'Pet Training', fn: runPetTraining, alwaysRun: false },
 
   { name: 'Bridesmaids Tasks', fn: runBridesmaids, alwaysRun: false },
 
