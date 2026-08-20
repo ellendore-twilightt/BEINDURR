@@ -48,7 +48,6 @@ module.exports = async function runMemoryEvent(page) {
     const tiles = await getAllTiles();
     const tile = tiles[index];
     if (!tile) return;
-    console.log(`licing tile ${index}...`);
     await page.waitForTimeout(10000);
     await tile.click({ force: true });
   }
