@@ -11,7 +11,6 @@ const DIVIDER = '─────────────────────
 const runBurnEnergy = require('./burn-energy.js');
 const runFashionMagazine = require('./fashion-magazine.js');
 const runTeleportEvent = require('./tele.js');
-const runSolitaireEvent = require('./solitaire.js');
 const runMapsEvent = require('./maps.js');
 const runSlotsEvent = require('./Slots.js');
 const runMemoryEvent = require('./memory.js');
@@ -33,8 +32,6 @@ const scripts = [
   { name: 'Fashion Magazine', fn: runFashionMagazine, envKey: 'LP_FASHION_MAGAZINE_URL' },
 
   { name: 'Tele Event', fn: runTeleportEvent, envKey: 'LP_TELEPORT_URL' },
-
-  { name: 'Solitaire Event', fn: runSolitaireEvent, envKey: 'LP_SOLITAIRE_URL' },
 
   { name: 'Maps Event', fn: runMapsEvent, envKey: 'LP_MAPS_URL' },
 
