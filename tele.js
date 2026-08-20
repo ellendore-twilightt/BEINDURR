@@ -2,31 +2,23 @@
 
 module.exports = async function runTeleportEvent(page) {
   const teleportUrl = process.env.LP_TELEPORT_URL;
-
-  console.log("🌐 Navigating to teleport event page...");
   await page.goto(teleportUrl, { waitUntil: 'domcontentloaded' });
-
-  console.log('🔄 Refresh & wait...');
   await page.reload();
-  await page.waitForTimeout(30000);
+  await page.waitForTimeout(10000);
 
-  const emeraldText = await page.textContent('#player-emeralds');
+  const emeraldText = await page.textContent('#player-emerald');
   const emeralds = parseInt(emeraldText.replace(/\D/g, ''), 10);
-  console.log('💎 Emeralds:', emeralds);
   if (emeralds < 3) {
-    console.log('➡️ Not enough emeralds. Exiting teleport script.');
     return;
   }
 
   let tries = await page.$$eval('div.currency-tries > span.currency-circle-full', els => els.length);
-  console.log('🎲 Initial tries:', tries);
   if (tries === 0) {
-    console.log('➡️ No tries available. Exiting teleport script.');
     return;
   }
 
   const getIndex = (r, c) => (r - 1) * 10 + c;
-  const getCoords = idx => [Math.floor((idx - 1) / 10) + 1, ((idx - 1) % 10) + 1];
+  const getCoords = idx => [Math.floor((idx) / 10) + 1, ((idx - 1) % 10) + 1];
   const getNeighbors = (r, c) => {
     const n = [];
     for (let dr = -1; dr <= 1; dr++) {
