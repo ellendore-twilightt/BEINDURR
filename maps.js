@@ -25,8 +25,7 @@ module.exports = async function runMapsEvent(page) {
     const emeraldText = await page.$eval('#player-emeralds', el => el.textContent.trim());
     const emeralds = parseInt(emeraldText.replace(/[^\d]/g, ''));
 
-    if (emeralds < 2) {
-      console.log(`❌ Only ${emeralds} emeralds left. Stopping.`);
+    if (emeralds < 20000) {
       break;
     }
 
