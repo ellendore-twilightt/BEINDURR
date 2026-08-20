@@ -24,7 +24,7 @@ module.exports = async function runMapsEvent(page) {
   for (let i = 0; i < fullCircles; i++) {
     const antiquesText = await page.$eval('#player-emeralds', el => el.textContent.trim());
     const antiques = parseInt(antiquesText.replace(/[^\d]/g, ''));
-    if (antiques < 20000) {
+    if (antiques < 2) {
       break;
     }
     const unopenedCells = await page.$$('a.square.unopened');
