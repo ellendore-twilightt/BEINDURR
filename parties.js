@@ -2,7 +2,6 @@
 
 module.exports = async function runParties(page) {
   try {
-    console.log("\n🎉 Starting Parties Script");
 
     const BASE_URL =
       'https://v3.g.ladypopular.com';
@@ -66,9 +65,6 @@ module.exports = async function runParties(page) {
       await activePartyLink.getAttribute('href');
 
     if (!partyUrlStrip) {
-      console.log(
-        "❌ Active party found, but URL could not be extracted."
-      );
       return;
     }
 
@@ -80,7 +76,7 @@ module.exports = async function runParties(page) {
       partyUrlStrip.match(/[?&]party=(\d+)/);
 
     if (!partyIdMatch) {
-      console.log("❌ Could not extract Party ID.");
+     
       return;
     }
 
@@ -106,9 +102,7 @@ module.exports = async function runParties(page) {
       partyType = "Wedding";
     }
 
-    console.log(
-      `🎊 Active ${partyType.toLowerCase()} party: ${partyOwnerName || "Unknown"} (ID ${partyId})`
-    );
+   
 
     // ============================================================
     // STEP 3
@@ -186,9 +180,7 @@ module.exports = async function runParties(page) {
         bonusResponse.data &&
         bonusResponse.data.status === 1
       ) {
-        console.log(
-          "🎁 Attendance bonus collected."
-        );
+       
       } else {
         // "Already received" is a normal situation.
         if (
@@ -207,8 +199,7 @@ module.exports = async function runParties(page) {
       }
     } catch (error) {
       console.log(
-        "❌ Attendance bonus error: " +
-        error.message
+        "❌ Attendance bonus error: "
       );
     }
 
@@ -301,8 +292,7 @@ module.exports = async function runParties(page) {
         }
       } catch (error) {
         console.log(
-          "❌ Could not open Missions tab: " +
-          error.message
+          "❌ Could not open Missions tab: "
         );
       }
     }
@@ -494,7 +484,7 @@ module.exports = async function runParties(page) {
       );
     } else {
       console.log(
-        `📋 Completed quests: ${quest_data_id.size} (${Array.from(quest_data_id).join(", ")})`
+        `📋 Completed quests`
       );
     }
 
@@ -506,13 +496,6 @@ module.exports = async function runParties(page) {
     if (
       quest_data_id.size === 0
     ) {
-      console.log(
-        "⏭️ No quest rewards to collect."
-      );
-
-      console.log(
-        "✅ Parties finished."
-      );
 
       return;
     }
@@ -601,22 +584,16 @@ module.exports = async function runParties(page) {
               ? rewardResponse.data.reward.fp
               : null;
 
-          console.log(
-            `🎁 Quest ${questId}: collected${fp !== null ? ` (+${fp} FP)` : ""}`
-          );
+        
         } else {
           failedRewards++;
 
-          console.log(
-            `⚠️ Quest ${questId}: reward collection failed.`
-          );
+         
         }
       } catch (error) {
         failedRewards++;
 
-        console.log(
-          `❌ Quest ${questId}: ${error.message}`
-        );
+    
       }
     }
 
@@ -624,15 +601,13 @@ module.exports = async function runParties(page) {
     // FINAL SUMMARY
     // ============================================================
 
-    console.log(
-      `🎉 Parties finished — ${successfulRewards}/${quest_data_id.size} rewards collected.`
-    );
+  
 
     if (
       failedRewards > 0
     ) {
       console.log(
-        `⚠️ Failed rewards: ${failedRewards}`
+        `⚠️ Failed rewards`
       );
     }
 
