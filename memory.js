@@ -8,10 +8,10 @@ module.exports = async function runMemoryEvent(page) {
       waitUntil: 'domcontentloaded'
     });
 
-    await page.waitForTimeout(30000);
+    await page.waitForTimeout(10000);
 
     const emeraldText =
-      await page.textContent('#player-emeralds');
+      await page.textContent('#player-emerald');
 
     const emeralds =
       parseInt(
@@ -24,9 +24,9 @@ module.exports = async function runMemoryEvent(page) {
 
     const startButton =
       await page.waitForSelector(
-        'button.btn-free-reset',
+        'button.btn.free.reset',
         {
-          timeout: 180000
+          timeout: 10000
         }
       ); // 3 minutes
 
@@ -37,9 +37,9 @@ module.exports = async function runMemoryEvent(page) {
     });
 
     await page.waitForSelector(
-      '.memory-grid-wrapper',
+      '.memory.grid.wrapper',
       {
-        timeout: 30000
+        timeout: 10000
       }
     );
 
