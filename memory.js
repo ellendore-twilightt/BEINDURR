@@ -44,6 +44,15 @@ module.exports = async function runMemoryEvent(page) {
     return match ? match[1] : null;
   }
 
+  async function clickTileOnly(index) {
+    const tiles = await getAllTiles();
+    const tile = tiles[index];
+    if (!tile) return;
+    console.log(`licing tile ${index}...`);
+    await page.waitForTimeout(10000);
+    await tile.click({ force: true });
+  }
+  
   async function isTileMatched(index) {
     const tiles = await getAllTiles();
     const tile = tiles[index];
@@ -97,6 +106,9 @@ module.exports = async function runMemoryEvent(page) {
       console.log(`✅ MATCHED: ${firstIndex} & ${secondIndex}`);
     } else {
       console.log(`❌ Not a match: ${firstIndex} & ${secondIndex}`);
+      await clickTileOnly(firstIndex);
+      await clickTileOnly(secondIndex);
+      await page.waitForTimeout(500);
     }
   }
 
