@@ -22,10 +22,10 @@ module.exports = async function runMapsEvent(page) {
   let successfulClicks = 0;
 
   for (let i = 0; i < fullCircles; i++) {
-    const emeraldText = await page.$eval('#player-emeralds', el => el.textContent.trim());
-    const emeralds = parseInt(emeraldText.replace(/[^\d]/g, ''));
+    const antiquesText = await page.$eval('#player-emeralds', el => el.textContent.trim());
+    const antiques = parseInt(antiquesText.replace(/[^\d]/g, ''));
 
-    if (emeralds < 20000) {
+    if (antiques < 20000) {
       break;
     }
 
@@ -43,11 +43,10 @@ module.exports = async function runMapsEvent(page) {
     await cell.click();
     successfulClicks++;
 
-    console.log(`✅ Clicked cell rel=${relAttr}. Emeralds left: ${emeralds - 2}`);
+    console.log(`✅ Clicked cell rel=${relAttr}. Emeralds left: ${antiques - 2}`);
 
     await page.waitForTimeout(15000);
   }
 
   console.log(`🏁 Maps complete. Total clicks: ${successfulClicks}`);
 };
-
