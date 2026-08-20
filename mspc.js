@@ -21,7 +21,7 @@ const runGuildShow = require('./guild-show.js');
 const runPetTraining = require('./pet-train.js');
 const runBridesmaids = require('./bridesmaids.js');
 const runParties = require('./parties.js');
-const runApartmentAndGifts = require('./apartment.js');
+const runApartment = require('./apartment.js');
 
 
 
