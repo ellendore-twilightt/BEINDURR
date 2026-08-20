@@ -28,7 +28,7 @@ module.exports = async function runBurnEnergy(page) {
 
       console.log(`🎟️ You have ${tickets} tickets.`);
 
-      const ticketsToUse = tickets - 10;
+      const ticketsToUse = tickets - 70;
 
       if (ticketsToUse <= 0) {
         console.log("🚫 No excess tickets to spend.");
