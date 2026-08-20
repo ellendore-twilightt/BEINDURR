@@ -43,7 +43,7 @@ module.exports = async function runMapsEvent(page) {
     await cell.click();
     successfulClicks++;
 
-    console.log(`✅ Clicked cell rel=${relAttr}. Emeralds left: ${antiques - 2}`);
+    console.log(`✅ Clicked cell rel=${relAttr}`);
 
     await page.waitForTimeout(15000);
   }
