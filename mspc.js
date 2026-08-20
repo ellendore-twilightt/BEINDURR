@@ -22,7 +22,7 @@ const runGuildShow = require('./guild-show.js');
 const runPetTraining = require('./pet-train.js');
 const runBridesmaids = require('./bridesmaids.js');
 const runParties = require('./parties.js');
-const runApartmentAndGifts = require('./apartment-gifts.js');
+const runApartmentAndGifts = require('./apartment.js');
 
 
 
@@ -56,7 +56,7 @@ const scripts = [
 
   { name: 'Bridesmaids Tasks', fn: runBridesmaids, alwaysRun: false },
 
-  { name: 'Apartment + Gifts', fn: runApartmentAndGifts, alwaysRun: true },
+  { name: 'Apartment', fn: runApartment, alwaysRun: true },
 
 ];
 
