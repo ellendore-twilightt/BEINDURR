@@ -22,7 +22,7 @@ module.exports = async function runSlotsEvent(page) {
       // 💎 Check emeralds
       const emeraldsText =
         await page.$eval(
-          '#player-emeralds',
+          '#player-emerald',
           el => el.textContent.trim()
         );
 
